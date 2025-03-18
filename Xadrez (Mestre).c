@@ -82,7 +82,7 @@ void movimentoCavalo() {
             for (int horizontalCavalo = 0; horizontalCavalo < 1; horizontalCavalo++) {
                 if (horizontalCavalo == 0) {
                     printf("Direita\n");
-                    continue; // Continua pra próxima iteração do loop interior
+                    continue; // Continua até a próxima iteração no loop interior
                 }
                 break; // Sai do loop interior
             }
