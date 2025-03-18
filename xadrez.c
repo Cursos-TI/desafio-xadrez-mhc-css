@@ -37,14 +37,12 @@ int main() {
 
 // Função de movimento da Torre
 void movimentoTorre(int direitaTorre) {
-
     // Função Recursiva [Horizontal Direita x5]
     if (direitaTorre > 0) {
         printf("Direita\n");
-
         // Chamada recursiva
-        movimentoTorre(direitaTorre - 1);       // Recursivamente chama a si mesmo com valor decrementado em valor 1.
-    }                                           // Quando "direitaTorre" chega a 0, a função recursiva encerra.
+        movimentoTorre(direitaTorre - 1); // Recursivamente chama a si mesmo com valor decrementado em valor 1.
+    } // Quando "direitaTorre" chega a 0, a função recursiva encerra.
 }
 
 // Função de movimento do Bispo
@@ -58,36 +56,35 @@ void movimentoBispo(int cimaBispo, int direitaBispo, int passosBispo) {
             }
         }
         // Chamada recursiva
-        movimentoBispo(cimaBispo + 1, direitaBispo + 1, passosBispo - 1);       // Mesmo conceito da Torre, porém com [incremento 1]
-                                                                                // nas variáveis verticais [mesmo que redundantes].
-    }
+        movimentoBispo(cimaBispo + 1, direitaBispo + 1, passosBispo - 1); // Mesmo conceito da Torre, porém com [incremento 1]
+    } // nas variáveis verticais [mesmo que redundantes].
 }
 
 // Função de movimento da Rainha
 void movimentoRainha(int esquerdaRainha) {
-
     // Função Recursiva [Esquerda x 8]
     if (esquerdaRainha > 0) {
         printf("Esquerda\n");
-
         // Chamada recursiva
-        movimentoRainha(esquerdaRainha - 1);   
-    }                                         
+        movimentoRainha(esquerdaRainha - 1);
+    }
 }
 
 // Função de movimento do Cavalo
 void movimentoCavalo() {
-
     // Loop exterior [Cima x 2...]
     for (int verticalCavalo = 0; verticalCavalo < 2; verticalCavalo++) {
         // Enquanto "verticalCavalo < 2" continua a rodar.
         printf("Cima\n");
-
         // Quando "verticalCavalo = 1", começa a simular o movimento horizontal [Direita]
         if (verticalCavalo == 1) {
             // Loop interior [...Direita x 1]
             for (int horizontalCavalo = 0; horizontalCavalo < 1; horizontalCavalo++) {
-                printf("Direita\n");
+                if (horizontalCavalo == 0) {
+                    printf("Direita\n");
+                    continue; // Continua pra próxima iteração do loop interior
+                }
+                break; // Sai do loop interior
             }
         }
     }
@@ -98,7 +95,7 @@ int main() {
     printf("Movimentacao de Pecas de Xadrez.\n");
     printf("Digite qualquer tecla para iniciar...\n");
 
-    getchar();  // Espera o usuário digitar uma tecla para começar.
+    getchar(); // Espera o usuário digitar uma tecla para começar.
 
     // Título P1
     printf("\nTORRE (Movimento):\n");
@@ -130,6 +127,6 @@ int main() {
     // Tela Inicial
     printf("\nDigite qualquer tecla para encerrar...\n");
 
-    getchar();  // Espera o usuário digitar uma tecla para encerrar.
-    getchar();  // Não fecha o prompt imediatamente após êxito de códigos anteriores (\n).
+    getchar(); // Espera o usuário digitar uma tecla para encerrar.
+    getchar(); // Não fecha o prompt imediatamente após êxito de códigos anteriores (\n).
 }
